@@ -1,0 +1,29 @@
+extends base
+
+block vars
+  - var title = 'Dashboard'
+
+block body
+  .container
+    .well
+        h1 Hello #{user.firstName}! Welcome to your Dashboard.
+        <a href="/logout" class='btn btn-primary'>Logout</a>
+    .row
+        .col-lg-8
+            h3 Your TODOs
+            if todos
+                each todo in todos
+                    div(class="alert alert-warning alert-dismissible" role="alert")
+                        form(method='post' action='deleteTodo')
+                            button(type="button" class="close" value=todo._id data-dismiss="alert" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                            <strong> #{todo.date.toLocaleDateString()}</strong> #{todo.body}
+        .col-lg-4
+            .well
+                h3 Create Your New TODO!
+            form(method='post')
+                input(type="hidden", name="_csrf", value=csrfToken id='csrf')
+                .form-group
+                    textarea(class='form-control' rows='3' name='body' placeholder='write your todo here..' required)
+                input(type='submit' class='btn btn-default' value='create todo')
+    script(type='text/javascript' src='/js/dashboard.js')

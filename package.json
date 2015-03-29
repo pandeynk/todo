@@ -1,0 +1,21 @@
+{
+    "name": "todo",
+    "version": "1.0.0",
+    "description": "Basic todo app",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Noddy",
+    "license": "UNLICENSE",
+    "dependencies": {
+        "bcryptjs": "^2.0.2",
+        "body-parser": "^1.9.0",
+        "client-sessions": "^0.7.0",
+        "csurf": "^1.6.1",
+        "express": "^4.9.7",
+        "jade": "^1.7.0",
+        "mongoose": "*"
+    }
+}

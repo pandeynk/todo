@@ -1,0 +1,26 @@
+extends base
+
+block vars
+  - var title = 'Login'
+
+block body
+  .container
+    .well 
+        h1 Log Into Your Account
+    if error
+    p ERROR: #{error}
+    .row
+        .col-md-6
+            form(method="post")
+                input(type="hidden", name="_csrf", value=csrfToken)
+                .form-group
+                    label(for='email' class='col-sm-2 control-label') Email:
+                    input(type="email", name="email", required=true class='form-control')
+                    br
+                .form-group
+                    label(for='password' class='col-sm-2 control-label') Password:
+                    input(type="password", name="password", required=true class='form-control')
+                    br    
+                input(class='btn btn-default' type='submit' value='submit')
+                <a href="/register" class='btn btn-primary'>register</a>
+        
